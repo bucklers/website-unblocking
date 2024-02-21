@@ -33,10 +33,12 @@
       }
       #menu {
         position: fixed;
-        left: 0;
+        left: -190px;
         height: 100%;
         background-color: #111;
         padding-top: 48px;
+        box-shadow: 0 0 10px 2px #888888;
+        transition: left 0.3s ease, box-shadow 0.3s ease;
       }
       .menu-button {
         width: 190px;
@@ -46,11 +48,23 @@
         cursor: pointer;
         margin: 10px;
       }
+      .menu-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
     </style>
+    <script>
+    toggledMenu = false;
+      function toggleMenu() {
+        var menu = document.getElementById("menu");
+        menu.style.boxShadow = toggledMenu === false ? "6px 0 10px 2px #888888" : "0 0 10px 2px #888888";
+        menu.style.left = toggledMenu === false ? "0" : "-190px";
+        toggledMenu = toggledMenu === false ? true : false
+      }
+    </script>
   </head>
   <body>
     <div id="topbar">
-      <div id="menu-toggle"><b>&#9776;</b></div>
+      <div id="menu-toggle" onclick="toggleMenu()"><b>&#9776;</b></div>
       <div id="title">Bucklers Cheats</div>
     </div>
     <div id="menu">
