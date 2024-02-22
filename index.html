@@ -7,16 +7,17 @@
         margin: 0;
         padding-top: 48px;
         font-family: Arial, Sans-Serif;
-        background-color: #ddd;
         color: #fff;
+        background: linear-gradient(to bottom, #111, #712878);
+        background-attachment: fixed;
+        height: 100vh;
       }
       #topbar {
         position: fixed;
         top: 0;
         width: 100%;
-        background-color: #712878;
-        z-index: 2;
-        outline: 4px solid #111;
+        background-color: #111;
+        outline: 2px solid #ccc;
       }
       #menu-toggle {
         font-size: 26px;
@@ -25,6 +26,7 @@
         cursor: pointer;
         margin-bottom: 1px;
         padding-left: 10px;
+        color: #ccc;
       }
       #title {
         font-size: 22px;
@@ -36,13 +38,14 @@
       #menu {
         position: fixed;
         left: -230px;
-        top: 0;
+        top: 47.4px;
+        z-index: 2;
         height: 100%;
         width: 230px;
-        background-color: #111;
-        padding-top: 48px;
-        box-shadow: 0 0 0 0 #444;
-        transition: left 0.3s ease, box-shadow 0.3s ease;
+        background-color: #1A1A1A;
+        padding-top: 4px;
+        transition: left 0.3s ease;
+        border-right: 2px solid #ccc;
       }
       .menu-button {
         width: 190px;
@@ -60,7 +63,6 @@
     toggledMenu = false;
       function toggleMenu() {
         var menu = document.getElementById("menu");
-        menu.style.boxShadow = toggledMenu === false ? "6px 0 10px 2px #444" : "0 0 0 0 #444";
         menu.style.left = toggledMenu === false ? "0" : "-230px";
         toggledMenu = toggledMenu === false ? true : false
       }
